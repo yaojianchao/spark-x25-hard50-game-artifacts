@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Spark 星尘收集</title>
+  <style>
+    /* 全局样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #05060f;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans", "Microsoft YaHei", sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 30%, #0b1030 0%, #05060f 70%);
+    }
+    /* 游戏容器 */
+    #app {
+      width: 100%;
+      height: 100%;
+      max-width: 100vw;
+      max-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      border-radius: 999px;
+      box-shadow: 0 0 40px rgba(80, 120, 255, 0.25) inset, 0 0 0 1px rgba(80, 120, 255, 0.15);
+    }
+    /* 顶部信息栏 */
+    #hud {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      pointer-events: none;
+      z-index: 10;
+      color: #e6f0ff;
+      font-size: 16px;
+      font-weight: 600;
+      text-shadow: 0 0 8px rgba(80, 120, 255, 0.5);
+    }
+    #hud .left, #hud .right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    #hud .left .label {
+      color: #6f8bf0;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    #hud .left .value {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    #hud .right .value {
+      color: #7fd0ff;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    /* 生命条 */
+    #lives {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #7fd0ff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .life-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #7fd0ff;
+      box-shadow: 0 0 8px rgba(127, 208, 255, 0.7);
+      transition: opacity 0.2s;
+    }
+    .life-dot.lost {
+      background: #3a2a4a;
+      box-shadow: 0 0 8px rgba(58, 42, 74, 0.5);
+      opacity: 0.4;
+    }
+    /* 控制提示 */
+    #controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: #8aa6ff;
+      font-size: 13px;
+      text-align: center;
+      padding-bottom: 4px;
+      z-index: 10;
+    }
+    #controls .hint {
+      display: flex;
+      gap: 14px;
+    }
+    #controls .key {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(80, 120, 255, 0.12);
+      border: 1px solid rgba(80, 120, 255, 0.25);
+      border-radius: 8px;
+      color: #b8d4ff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    #controls .key .keycap {
+      background: #1a2240;
+      border-radius: 5px;
+      padding: 1px 6px;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    /* 游戏画布 */
+    #canvas-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 2;
+    }
+    #canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+    /* 覆盖层（开始/结束） */
+    #overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      background: radial-gradient(circle at 50% 40%, #0a0f2a 0%, #05060f 70%);
+      color: #e6f0ff;
+      text-align: center;
+      padding: 24px;
+    }
+    #overlay.hidden {
+      display: none;
+    }
+    #overlay .title {
+      font-size: 40px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px rgba(80, 120, 255, 0.6);
+    }
+    #overlay .subtitle {
+      margin-top: 8px;
+      color: #8aa6ff;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    #overlay .stat {
+      margin-top: 18px;
+      display: flex;
+      gap: 24px;
+      color: #b8d4ff;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    #overlay .stat .v {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    #overlay .stat .u {
+      color: #6f8bf0;
+    }
+    #overlay .btn {
+      margin-top: 28px;
+      padding: 14px 48px;
+      background: linear-gradient(135deg, #4a8dff 0%, #2a5cff 100%);
+      border: none;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 0 24px rgba(70, 120, 255, 0.5);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    #overlay .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px rgba(70, 120, 255, 0.7);
+    }
+    #overlay .btn:active {
+      transform: translateY(0);
+    }
+    /* 浮动粒子装饰 */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      animation: floatUp 1.2s ease-out infinite;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-120px) scale(0.2);
+        opacity: 0;
+      }
+    }
+    /* 加载提示 */
+    #loading {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 30;
+      color: #8aa6ff;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .spin {
+      width: 28px;
+      height: 28px;
+      border: 2px solid rgba(80, 120, 255, 0.5);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 12px;
+    }
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 顶部信息栏 -->
+    <div id="hud">
+      <div class="left">
+        <span class="label">分数</span>
+        <span class="value" id="score">0</span>
+      </div>
+      <div class="right">
+        <span class="label">生命</span>
+        <span class="value" id="lives">10</span>
+      </div>
+      <div class="right">
+        <span class="label">星尘</span>
+        <span class="value" id="stars">0</span>
+      </div>
+    </div>
+    <!-- 控制提示 -->
+    <div id="controls">
+      <div class="hint">
+        <span class="key"><span class="keycap">←</span><span class="keycap">↑</span></span>
+        <span class="key"><span class="keycap">→</span><span class="keycap">↓</span></span>
+        <span class="key"><span class="keycap">←</span><span class="keycap">↓</span></span>
+        <span class="key"><span class="keycap">→</span><span class="keycap">↓</span></span>
+      </div>
+    </div>
+    <!-- 画布容器 -->
+    <div id="canvas-wrap">
+      <canvas id="canvas" width="800" height="600"></canvas>
+    </div>
+    <!-- 覆盖层 -->
+    <div id="overlay">
+      <div id="overlay-title">Spark 星尘收集</div>
+      <div id="overlay-subtitle">方向键 / WASD 操控，收集星尘，躲避陨石</div>
+      <div class="stat">
+        <span class="v" id="stat-score">0</span>
+        <span class="u">分数</span>
+      </div>
+      <div class="stat">
+        <span class="v" id="stat-stars">0</span>
+        <span class="u">星尘</span>
+      </div>
+      <div class="stat">
+        <span class="v" id="stat-lives">10</span>
+        <span class="u">生命</span>
+      </div>
+      <button id="restart-btn" class="btn">重新开始</button>
+    </div>
+    <!-- 加载提示 -->
+    <div id="loading">
+      <div class="spin"></div>
+      <div>正在加载星尘...</div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
