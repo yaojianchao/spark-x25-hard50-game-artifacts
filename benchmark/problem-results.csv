@@ -1,0 +1,51 @@
+id,title,passed,attempts,input_tokens,output_tokens,total_tokens,latency_ms,tokens_per_second,peak_memory_gb,final_error_kind,final_finish_reason
+4,Median of Two Sorted Arrays,False,5,3764,2560,6324,25555.59,100.17,1.694,NameError,closed_code_block
+10,Regular Expression Matching,True,5,3921,2013,5934,19957.37,100.86,1.7,pass,closed_code_block
+32,Longest Valid Parentheses,False,5,2925,1797,4722,17666.81,101.72,1.646,wrong answer,closed_code_block
+41,First Missing Positive,True,1,411,136,547,1384.96,98.2,1.412,pass,closed_code_block
+42,Trapping Rain Water,True,1,403,189,592,1888.11,100.1,1.402,pass,closed_code_block
+44,Wildcard Matching,False,5,3856,1308,5164,13792.16,94.84,1.742,other runtime error,closed_code_block
+51,N-Queens,False,5,4017,3574,7591,34750.95,102.85,1.734,wrong answer,closed_code_block
+52,N-Queens II,False,5,3562,2168,5730,22707.7,95.47,1.689,AttributeError,closed_code_block
+65,Valid Number,False,5,14132,11978,26110,143800.89,83.3,1.826,wrong answer,closed_code_block
+68,Text Justification,False,5,14787,11999,26786,152930.46,78.46,1.849,wrong answer,closed_code_block
+72,Edit Distance,True,1,463,268,731,3175.75,84.39,1.474,pass,closed_code_block
+76,Minimum Window Substring,False,5,5950,4160,10110,50454.2,82.45,1.744,syntax error,repetition_guard
+84,Largest Rectangle in Histogram,False,5,7924,7073,14997,87396.86,80.93,1.861,NameError,closed_code_block
+85,Maximal Rectangle,False,5,8708,7161,15869,89334.13,80.16,1.886,wrong answer,closed_code_block
+87,Scramble String,False,5,5438,2596,8034,33104.8,78.42,1.765,other runtime error,closed_code_block
+97,Interleaving String,False,5,5406,3336,8742,41749.95,79.9,1.702,wrong answer,closed_code_block
+115,Distinct Subsequences,False,5,3470,2305,5775,28824.52,79.97,1.659,wrong answer,closed_code_block
+127,Word Ladder,False,5,4851,2721,7572,33612.92,80.95,1.71,test timeout,closed_code_block
+135,Candy,False,5,3554,2120,5674,26035.63,81.43,1.664,wrong answer,closed_code_block
+140,Word Break II,False,5,4228,2600,6828,31214.3,83.3,1.697,TypeError,closed_code_block
+149,Max Points on a Line,False,5,4208,2871,7079,36813.31,77.99,1.696,TypeError,closed_code_block
+154,Find Minimum in Rotated Sorted Array II,False,5,3727,1847,5574,19782.3,93.37,1.684,wrong answer,closed_code_block
+174,Dungeon Game,False,5,10128,7853,17981,93980.31,83.56,1.826,TypeError,closed_code_block
+188,Best Time to Buy and Sell Stock IV,True,1,527,398,925,5209.17,76.4,1.553,pass,closed_code_block
+212,Word Search II,False,5,19562,18052,37614,252829.96,71.4,1.835,wrong answer,closed_code_block
+214,Shortest Palindrome,False,5,19643,18173,37816,243917.89,74.5,1.865,NameError,closed_code_block
+218,The Skyline Problem,False,5,6226,2839,9065,39347.27,72.15,1.791,wrong answer,closed_code_block
+224,Basic Calculator,False,5,20418,22721,43139,300127.87,75.7,1.898,syntax error,wall_timeout
+233,Number of Digit One,False,5,20712,19321,40033,247034.77,78.21,1.888,wrong answer,class_completed
+239,Sliding Window Maximum,False,5,8667,6838,15505,93415.77,73.2,1.897,IndexError,closed_code_block
+273,Integer to English Words,False,5,12174,12736,24910,156831.76,81.21,1.803,syntax error,repetition_guard
+282,Expression Add Operators,False,5,12722,10680,23402,135005.55,79.11,1.835,wrong answer,closed_code_block
+301,Remove Invalid Parentheses,False,5,4253,3521,7774,45965.97,76.6,1.734,wrong answer,closed_code_block
+312,Burst Balloons,False,5,3992,2265,6257,28382.01,79.8,1.704,wrong answer,closed_code_block
+315,Count of Smaller Numbers After Self,False,5,3324,1491,4815,18765.28,79.46,1.686,wrong answer,closed_code_block
+329,Longest Increasing Path in a Matrix,False,5,3209,1523,4732,19423.83,78.41,1.68,IndexError,closed_code_block
+330,Patching Array,False,5,4243,2818,7061,34435.78,81.83,1.703,wrong answer,closed_code_block
+332,Reconstruct Itinerary,False,5,5218,3203,8421,39492.71,81.1,1.703,NameError,closed_code_block
+336,Palindrome Pairs,False,5,14116,12181,26297,154374.37,78.91,1.816,NameError,closed_code_block
+354,Russian Doll Envelopes,False,5,3134,1466,4600,18186.11,80.61,1.578,wrong answer,closed_code_block
+403,Frog Jump,False,5,4194,2129,6323,26186.39,81.3,1.7,wrong answer,closed_code_block
+410,Split Array Largest Sum,False,5,8610,7534,16144,93254.82,80.79,1.814,wrong answer,closed_code_block
+420,Strong Password Checker,False,5,6590,4919,11509,60588.4,81.19,1.768,syntax error,closed_code_block
+458,Poor Pigs,False,5,5476,6069,11545,72264.55,83.98,1.734,syntax error,closed_code_block
+493,Reverse Pairs,False,5,16927,14824,31751,194447.49,76.24,1.852,wrong answer,closed_code_block
+502,IPO,False,5,4957,2286,7243,29881.22,76.5,1.736,NameError,closed_code_block
+517,Super Washing Machines,False,5,9005,7165,16170,88174.29,81.26,1.815,wrong answer,closed_code_block
+564,Find the Closest Palindrome,False,5,3112,2002,5114,23955.57,83.57,1.645,syntax error,closed_code_block
+630,Course Schedule III,True,1,619,93,712,1361.22,68.32,1.629,pass,closed_code_block
+664,Strange Printer,False,5,2891,1761,4652,21064.21,83.6,1.611,IndexError,closed_code_block
