@@ -1,0 +1,29 @@
+{
+  "model": "XHToken/Spark-X2.5-1.7B",
+  "backend": "MLX 0.32.2 / Apple GPU",
+  "quantization": {
+    "bits": 4,
+    "group_size": 64,
+    "mode": "affine"
+  },
+  "problems": 50,
+  "passed_local_fixed_tests": 6,
+  "failed_local_fixed_tests": 44,
+  "local_fixed_test_accuracy": 0.12,
+  "attempts": 230,
+  "attempts_per_problem_limit": 5,
+  "generation_token_limit": null,
+  "generation_stop": "model EOS, complete tool call/code block, repetition guard, or fault watchdog",
+  "total_input_tokens": 344354,
+  "total_output_tokens": 273641,
+  "total_tokens": 617995,
+  "mean_task_latency_ms": 69076.76,
+  "median_task_latency_ms": 34593.36,
+  "p95_task_latency_ms": 247034.77,
+  "benchmark_wall_time_s": 3359.096,
+  "peak_mlx_memory_gb": 1.898,
+  "syntax_accuracy": 0.88,
+  "solved_on_first_attempt": 5,
+  "solved_after_retry": 1,
+  "scope_note": "Local fixed tests only; no solution was submitted to LeetCode."
+}
