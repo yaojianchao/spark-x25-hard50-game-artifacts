@@ -1,0 +1,51 @@
+id,title,difficulty,url,python_method
+4,Median of Two Sorted Arrays,Hard,https://leetcode.com/problems/median-of-two-sorted-arrays/,findMedianSortedArrays
+10,Regular Expression Matching,Hard,https://leetcode.com/problems/regular-expression-matching/,isMatch
+32,Longest Valid Parentheses,Hard,https://leetcode.com/problems/longest-valid-parentheses/,longestValidParentheses
+41,First Missing Positive,Hard,https://leetcode.com/problems/first-missing-positive/,firstMissingPositive
+42,Trapping Rain Water,Hard,https://leetcode.com/problems/trapping-rain-water/,trap
+44,Wildcard Matching,Hard,https://leetcode.com/problems/wildcard-matching/,isMatch
+51,N-Queens,Hard,https://leetcode.com/problems/n-queens/,solveNQueens
+52,N-Queens II,Hard,https://leetcode.com/problems/n-queens-ii/,totalNQueens
+65,Valid Number,Hard,https://leetcode.com/problems/valid-number/,isNumber
+68,Text Justification,Hard,https://leetcode.com/problems/text-justification/,fullJustify
+72,Edit Distance,Hard,https://leetcode.com/problems/edit-distance/,minDistance
+76,Minimum Window Substring,Hard,https://leetcode.com/problems/minimum-window-substring/,minWindow
+84,Largest Rectangle in Histogram,Hard,https://leetcode.com/problems/largest-rectangle-in-histogram/,largestRectangleArea
+85,Maximal Rectangle,Hard,https://leetcode.com/problems/maximal-rectangle/,maximalRectangle
+87,Scramble String,Hard,https://leetcode.com/problems/scramble-string/,isScramble
+97,Interleaving String,Hard,https://leetcode.com/problems/interleaving-string/,isInterleave
+115,Distinct Subsequences,Hard,https://leetcode.com/problems/distinct-subsequences/,numDistinct
+127,Word Ladder,Hard,https://leetcode.com/problems/word-ladder/,ladderLength
+135,Candy,Hard,https://leetcode.com/problems/candy/,candy
+140,Word Break II,Hard,https://leetcode.com/problems/word-break-ii/,wordBreak
+149,Max Points on a Line,Hard,https://leetcode.com/problems/max-points-on-a-line/,maxPoints
+154,Find Minimum in Rotated Sorted Array II,Hard,https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/,findMin
+174,Dungeon Game,Hard,https://leetcode.com/problems/dungeon-game/,calculateMinimumHP
+188,Best Time to Buy and Sell Stock IV,Hard,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/,maxProfit
+212,Word Search II,Hard,https://leetcode.com/problems/word-search-ii/,findWords
+214,Shortest Palindrome,Hard,https://leetcode.com/problems/shortest-palindrome/,shortestPalindrome
+218,The Skyline Problem,Hard,https://leetcode.com/problems/the-skyline-problem/,getSkyline
+224,Basic Calculator,Hard,https://leetcode.com/problems/basic-calculator/,calculate
+233,Number of Digit One,Hard,https://leetcode.com/problems/number-of-digit-one/,countDigitOne
+239,Sliding Window Maximum,Hard,https://leetcode.com/problems/sliding-window-maximum/,maxSlidingWindow
+273,Integer to English Words,Hard,https://leetcode.com/problems/integer-to-english-words/,numberToWords
+282,Expression Add Operators,Hard,https://leetcode.com/problems/expression-add-operators/,addOperators
+301,Remove Invalid Parentheses,Hard,https://leetcode.com/problems/remove-invalid-parentheses/,removeInvalidParentheses
+312,Burst Balloons,Hard,https://leetcode.com/problems/burst-balloons/,maxCoins
+315,Count of Smaller Numbers After Self,Hard,https://leetcode.com/problems/count-of-smaller-numbers-after-self/,countSmaller
+329,Longest Increasing Path in a Matrix,Hard,https://leetcode.com/problems/longest-increasing-path-in-a-matrix/,longestIncreasingPath
+330,Patching Array,Hard,https://leetcode.com/problems/patching-array/,minPatches
+332,Reconstruct Itinerary,Hard,https://leetcode.com/problems/reconstruct-itinerary/,findItinerary
+336,Palindrome Pairs,Hard,https://leetcode.com/problems/palindrome-pairs/,palindromePairs
+354,Russian Doll Envelopes,Hard,https://leetcode.com/problems/russian-doll-envelopes/,maxEnvelopes
+403,Frog Jump,Hard,https://leetcode.com/problems/frog-jump/,canCross
+410,Split Array Largest Sum,Hard,https://leetcode.com/problems/split-array-largest-sum/,splitArray
+420,Strong Password Checker,Hard,https://leetcode.com/problems/strong-password-checker/,strongPasswordChecker
+458,Poor Pigs,Hard,https://leetcode.com/problems/poor-pigs/,poorPigs
+493,Reverse Pairs,Hard,https://leetcode.com/problems/reverse-pairs/,reversePairs
+502,IPO,Hard,https://leetcode.com/problems/ipo/,findMaximizedCapital
+517,Super Washing Machines,Hard,https://leetcode.com/problems/super-washing-machines/,findMinMoves
+564,Find the Closest Palindrome,Hard,https://leetcode.com/problems/find-the-closest-palindrome/,nearestPalindromic
+630,Course Schedule III,Hard,https://leetcode.com/problems/course-schedule-iii/,scheduleCourse
+664,Strange Printer,Hard,https://leetcode.com/problems/strange-printer/,strangePrinter
